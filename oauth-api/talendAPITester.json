@@ -1,0 +1,170 @@
+{
+  "version": 6,
+  "entities": [
+    {
+      "entity": {
+        "type": "Project",
+        "id": "15be1218-9e2a-41e9-89bd-de7049f298d1",
+        "name": "oauth-api"
+      },
+      "children": [
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+              "name": "GET"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8080",
+              "path": "/"
+            },
+            "id": "aad432b9-bf6b-4e8f-8046-00db0df8a520",
+            "name": "Request 1 - 프로젝트 시작 테스트",
+            "headers": []
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+              "name": "GET"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": [
+                  {
+                    "enabled": true,
+                    "name": "id",
+                    "value": "user01"
+                  },
+                  {
+                    "enabled": true,
+                    "name": "pw",
+                    "value": "1234"
+                  }
+                ]
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8080",
+              "path": "/user"
+            },
+            "id": "617ef27a-3382-40a9-bff9-b7855ec17ac8",
+            "name": "Request 2 - 토큰 발급",
+            "headers": []
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+              "name": "GET"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8080",
+              "path": "/api/list"
+            },
+            "id": "ae44ea15-48dc-4438-b706-1ae4a57bed67",
+            "name": "Request 3 - 토큰을 통한 api 접속",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Authorization",
+                "value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJPb2dHLXdFbDBhaTBuakFyaldnVl9VTDJwclpHNDU3QXBoQ2FtWlZ3ZUtRIn0.eyJleHAiOjE2ODQ5ODEyMjAsImlhdCI6MTY4NDk4MDkyMCwianRpIjoiOWExNzRmNzAtZmU5OS00MzYxLTkxNGQtZTA4ZmUxMzQyYzIxIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgyL3JlYWxtcy9iaXQtcmVhbG0iLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiOTRkZjVlMGMtM2NjZi00ZTI1LWJhODEtM2ZkMDQ1NWVkNjU4IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiYml0LWNsaWVudCIsInNlc3Npb25fc3RhdGUiOiJlYmRkN2ExMS0xNWEwLTRiOTctYmY0ZC01Zjg5MmY5YTFlYmMiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHA6Ly9sb2NhbGhvc3Q6ODA4MCJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiIsImRlZmF1bHQtcm9sZXMtYml0LXJlYWxtIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYml0LWNsaWVudCI6eyJyb2xlcyI6WyJVU0VSIl19LCJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJzaWQiOiJlYmRkN2ExMS0xNWEwLTRiOTctYmY0ZC01Zjg5MmY5YTFlYmMiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJhIGIiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJ1c2VyMDEiLCJnaXZlbl9uYW1lIjoiYSIsImZhbWlseV9uYW1lIjoiYiJ9.jx4cXlJaK36PEVAZGSGru3QU_Yl5FyA7DdLhhp9FxXO6BEdxrPpFCeXh4mKioqJv2Lp1lNJ4z3fASVtD3Y_A4UpwW6_0OqznIPezx7GvHbXG-is2KKEhjij53kxYgcf6YpN41DTBmLA-6NqFepBC-wNFmESKqqGoYnbM0JVdHCwAKbtylB-h_ZV2sK3twM0zZQjnRKkicVIOKMjwmBBq_xwyRVpI5Conbtc85ByhvufhsOOhWkTcl-duwipvRUbiM1sfcImWZkSOGfV7_tyKdTPeEIiBx8OpBJw9IL2KlhO816NolFYbzw39yHj_5BbTySFkox6ltMzEyurxaFQqSg"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+              "name": "GET"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": [
+                  {
+                    "enabled": true,
+                    "name": "id",
+                    "value": "user05"
+                  },
+                  {
+                    "enabled": true,
+                    "name": "pw",
+                    "value": "1234"
+                  }
+                ]
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8080",
+              "path": "/add"
+            },
+            "id": "6fca4dcf-b545-4a0c-8502-4ccebeb70229",
+            "name": "Request 4 - 계정생성 (user02에 client와 user 메니저권한 추가)",
+            "headers": []
+          }
+        }
+      ]
+    }
+  ]
+}

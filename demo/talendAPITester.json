@@ -1,0 +1,180 @@
+{
+  "version": 6,
+  "entities": [
+    {
+      "entity": {
+        "type": "Project",
+        "id": "f7c9cf26-c4d0-4f25-832d-42f8f4e7a867",
+        "name": "demo"
+      },
+      "children": [
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "requestBody": true,
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+              "name": "POST"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": [
+                  {
+                    "enabled": true,
+                    "type": "Text",
+                    "name": "grant_type",
+                    "value": "password"
+                  },
+                  {
+                    "enabled": true,
+                    "type": "Text",
+                    "name": "username",
+                    "value": "user01"
+                  },
+                  {
+                    "enabled": true,
+                    "type": "Text",
+                    "name": "password",
+                    "value": "1234"
+                  },
+                  {
+                    "enabled": true,
+                    "type": "Text",
+                    "name": "client_id",
+                    "value": "bit-client"
+                  },
+                  {
+                    "enabled": true,
+                    "type": "Text",
+                    "name": "client_secret",
+                    "value": "BqF4KumpFU8XyhuS4LKjv8zU8wjUjJhh"
+                  }
+                ]
+              },
+              "bodyType": "Form"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8082",
+              "path": "/realms/bit-realm/protocol/openid-connect/token"
+            },
+            "id": "d6b52ffa-947d-4880-85d3-dd8c72b2789b",
+            "name": "Request 1 - Token발급",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "requestBody": true,
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+              "name": "POST"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": [
+                  {
+                    "enabled": true,
+                    "type": "Text",
+                    "name": "client_id",
+                    "value": "bit-client"
+                  },
+                  {
+                    "enabled": true,
+                    "type": "Text",
+                    "name": "grant_type",
+                    "value": "refresh_token"
+                  },
+                  {
+                    "enabled": true,
+                    "type": "Text",
+                    "name": "refresh_token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJhMjQ1MGYwOC1kNmZhLTRjMDQtYThlYS1lNDdlZGRhNGRmNGIifQ.eyJleHAiOjE2ODQ4OTAzNDMsImlhdCI6MTY4NDg4ODU0MywianRpIjoiNTA2YTQzMmItN2MyOC00YThmLTllZjUtMGYxYTMwNzYwNDUzIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgyL3JlYWxtcy9iaXQtcmVhbG0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjgwODIvcmVhbG1zL2JpdC1yZWFsbSIsInN1YiI6Ijk0ZGY1ZTBjLTNjY2YtNGUyNS1iYTgxLTNmZDA0NTVlZDY1OCIsInR5cCI6IlJlZnJlc2giLCJhenAiOiJiaXQtY2xpZW50Iiwic2Vzc2lvbl9zdGF0ZSI6IjIwZWNlMjA4LTgyOGYtNDEwOS1iMGQ3LTU0MzZkMzYwZWNmOSIsInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6IjIwZWNlMjA4LTgyOGYtNDEwOS1iMGQ3LTU0MzZkMzYwZWNmOSJ9.IjUrBdq7mXIs7QaHFEbuQvBzLbTh8osvS0GuXYPHEYo"
+                  }
+                ]
+              },
+              "bodyType": "Form"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8082",
+              "path": "/realms/bit-realm/protocol/openid-connect/token"
+            },
+            "id": "16edcf90-7dbd-4bb5-8908-7f6d4cc4a92c",
+            "name": "Request 2 - 토큰갱신",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+              "name": "GET"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8080",
+              "path": "/api/list"
+            },
+            "id": "17bd8a53-b7be-4b8e-a786-2a9cecd72623",
+            "name": "Request 3 - call api",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Authorization",
+                "value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJPb2dHLXdFbDBhaTBuakFyaldnVl9VTDJwclpHNDU3QXBoQ2FtWlZ3ZUtRIn0.eyJleHAiOjE2ODQ4OTU5MTcsImlhdCI6MTY4NDg5NTYxNywianRpIjoiZDY5MjBlMmEtNWQwNS00OWE3LWJhNmYtZDU3NTdlZTI3NDljIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgyL3JlYWxtcy9iaXQtcmVhbG0iLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiOTFkNjZlNWEtMjY4Zi00MjZlLTg5MzctMTI3NjZmYjU2NjIwIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiYml0LWNsaWVudCIsInNlc3Npb25fc3RhdGUiOiI3MGU1OWRjZC03ZjA3LTRhNDctOTBlYy05NjNiNjE2YWRmZTUiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHA6Ly9sb2NhbGhvc3Q6ODA4MCJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiIsImRlZmF1bHQtcm9sZXMtYml0LXJlYWxtIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYml0LWNsaWVudCI6eyJyb2xlcyI6WyJBRE1JTiJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwic2lkIjoiNzBlNTlkY2QtN2YwNy00YTQ3LTkwZWMtOTYzYjYxNmFkZmU1IiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJ1c2VyMDIiLCJnaXZlbl9uYW1lIjoiIiwiZmFtaWx5X25hbWUiOiIifQ.lIAdSbu2CCasX9ypPgWO7AofNTMM34Ydbvm3jlIrLQPDfoEFSRjhk5icaFWsAcbCFNZYY63-fxCTfWeunpNJHnqgNqdh4Jp4RaB0-81PQzLJh-KT4aPEiGl_TYdC1f3gjtUDf3TvQXD54R8JE983YQjRxNgu4YjPRLLueekpPBYMPBpL6BOUM7PFG3QcsvIzAi-UWTO12TrbF8OLjeY2kRONLPtwb7Nx2xUkLix5WsW3bKVSECoGOZaU_vTx3h2xIt9wOrYgcH-PkVvuOaExl6zmdBhveCQEOhnv_Vsr1CTsFTZjxRpXd2xwPkhCJ0Wqc8EfCF-BohN7wbSF_XVg2w"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
