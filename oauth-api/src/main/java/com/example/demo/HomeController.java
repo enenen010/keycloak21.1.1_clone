@@ -63,26 +63,35 @@ public class HomeController {
 	
 	@GetMapping("/add")
 	public ResponseEntity<?> add(String id,String pw) {
+		
+		//사용자 정보객체 만들어 id와 설정지정
 		UserRepresentation userRep=new UserRepresentation();
 		userRep.setUsername(id);
 		userRep.setEnabled(true);
+		
+		//Credential 정보 객체 만들어 패스워드 등 설정해 사용자 정보에 추가
 		CredentialRepresentation passwordCred = new CredentialRepresentation();
-		passwordCred.setTemporary(false);
+		passwordCred.setTemporary(false);//비번바꾸기
 		passwordCred.setType(CredentialRepresentation.PASSWORD);
 		passwordCred.setValue(pw);
 		userRep.setCredentials(Arrays.asList(passwordCred));
+		
+		//url, realm 등으로 특정한 대상 키클록 객체에 유저 세팅
+		//user02계정에 권한 있어야 함 
 		Keycloak keycloak = Keycloak.getInstance(serverUrl,realm,"user02","1234",clientID,secret);
 //		Keycloak keycloak = Keycloak.getInstance(serverUrl,realm,clientID,tokenString);
 		UsersResource usersRes=keycloak.realm(realm).users();
 		Response resp = usersRes.create(userRep);
 		log.debug(resp.getStatus());
 		
+		//유저에 권한 추가 
 		String userID = CreatedResponseUtil.getCreatedId(resp);
 		UserResource userRes = usersRes.get(userID);
 		RealmResource realmRes = keycloak.realm(realm);
 		ClientRepresentation clientRep=realmRes.clients().findByClientId(clientID).get(0);
-		RoleRepresentation clientRoleRep = 
+		RoleRepresentation clientRoleRep = //해당 client에 권한 있어야 가능(USER,ADMIN) => 권한 USER에 대한 정보 가져옴
 				realmRes.clients().get(clientRep.getId()).roles().get("USER").toRepresentation();
+		System.out.println(clientRep.getId());
 		userRes.roles().clientLevel(clientRep.getId()).add(Arrays.asList(clientRoleRep));
 		
 		return ResponseEntity.status(resp.getStatus()).build();
